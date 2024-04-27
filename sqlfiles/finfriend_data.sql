@@ -29,6 +29,7 @@ CREATE TABLE USER_CART (
     prod_name       VARCHAR(30) NOT NULL,
 	inventory_type  VARCHAR(30) NOT NULL,
 	quantity        INTEGER NOT NULL,
+    price INTEGER,
     FOREIGN KEY (username) REFERENCES USERS(username)
 );
 
