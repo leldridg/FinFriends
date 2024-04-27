@@ -1,6 +1,6 @@
 Create DATABASE fin_friends;
 
-CCREATE TABLE USERS (
+CREATE TABLE USERS (
     username        VARCHAR(30) UNIQUE NOT NULL PRIMARY KEY,
     keypass         VARCHAR(30) NOT NULL,
     first_name      VARCHAR(20),
