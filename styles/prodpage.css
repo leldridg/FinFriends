@@ -42,7 +42,7 @@
 .prodpageBackground{
     display: flex;
     justify-content: center;
-    background-color: cornflowerblue;
+    background-color: #89CFF0;
     color:black;
     padding: 60px;
 }
@@ -62,7 +62,7 @@
 #fishImage {
     height: 100%;
     border-radius: 20px;
-    border: 8px solid black;
+    border: 8px solid white;
 }
 
 .fishDetails {
@@ -82,7 +82,7 @@ button{
 }
 
 .backgroundForAll{
-    background-color: cornflowerblue;
+    /* background-color: #89CFF0; */
 }
 
 h2{

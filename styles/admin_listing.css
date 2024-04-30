@@ -88,6 +88,16 @@ table {
     margin-bottom: 20px;
   }
   
+  .fishes button {
+    background-color: white;
+    color: black;
+    padding: 5px 10px;
+    border-color:grey;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
   .stock-container label {
     font-weight: bold;
   }
@@ -114,7 +124,7 @@ table {
   }
   
   .stock-container button {
-    background-color: #4CAF50;
+    background-color: #073980;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -124,5 +134,5 @@ table {
   }
   
   .stock-container button:hover {
-    background-color: #45a049;
+    background-color: #194595;
   }
