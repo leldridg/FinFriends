@@ -1,3 +1,8 @@
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 .signup-container {
     text-align: center; /* Horizontal centering */
     justify-content: center; /* Horizontal centering */
@@ -9,12 +14,14 @@
     margin: 0 auto;
 }
 
+/* Top page container */
 .top-page{
     color:black;
-    background-color: white;
     display: flex;
     justify-content: space-between;
     align-items:center;
+    margin-left: 1%; /* Add this line to add some margin on the right */
+    width: 97%;
 }
 
 .navbar {
@@ -35,7 +42,7 @@
 .prodpageBackground{
     display: flex;
     justify-content: center;
-    background-color: cornflowerblue;
+    background-color: #89CFF0;
     color:black;
     padding: 60px;
 }
@@ -55,7 +62,7 @@
 #fishImage {
     height: 100%;
     border-radius: 20px;
-    border: 8px solid black;
+    border: 8px solid white;
 }
 
 .fishDetails {
@@ -75,7 +82,7 @@ button{
 }
 
 .backgroundForAll{
-    background-color: cornflowerblue;
+    /* background-color: #89CFF0; */
 }
 
 h2{

@@ -1,3 +1,9 @@
+
+*{
+    font-family: 'Roboto', sans-serif;
+
+}
+
 .login-container {
     text-align: center; /* Horizontal centering */
     justify-content: center; /* Horizontal centering */
@@ -22,16 +28,15 @@
 
 }
 
-
+/* Top page container */
 .top-page{
     color:black;
-    background-color: antiquewhite;
     display: flex;
     justify-content: space-between;
     align-items:center;
-
+    margin-left: 1%; /* Add this line to add some margin on the right */
+    width: 97%;
 }
-
 .navbar {
     display: flex;
 }
@@ -47,26 +52,16 @@
     margin-right:10px;
 }
 
-/* Table styles */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+.login-container button {
+    background-color: white;
+    color: black;
+    padding: 5px 10px;
+    border-color:grey;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-table th, table td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
-}
-
-/* Highlight table header */
-table th {
-    background-color: #333;
-    color: #fff;
-}
-
-/* Alternate row background color */
-tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+.login-container button:hover {
+    background-color: #EEEEEE;
 }

@@ -3,17 +3,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+    font-family: 'Roboto', sans-serif;
 
-/* Body styles */
+}
 
 /* Top page container */
 .top-page{
     color:black;
-    background-color: antiquewhite;
     display: flex;
     justify-content: space-between;
     align-items:center;
+    margin-left: 1%; /* Add this line to add some margin on the right */
+    width: 97%;
 }
 
 /* Navbar styles */
@@ -23,10 +24,8 @@
 
 .navbar ol{
     list-style-type: none;
-    padding:0;
     margin:0;
 }
-
 .navbar li{
     display: inline-block;
     margin-right:10px;

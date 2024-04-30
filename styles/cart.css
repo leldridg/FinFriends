@@ -1,39 +1,36 @@
-
 /* Reset default margin and padding */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 
-.checkout-button-container {
-    text-align: center;
 }
-
 
 /* Top page container */
 .top-page{
-    color:black;
-    background-color: antiquewhite;
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
+  color:black;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  margin-left: 1%; /* Add this line to add some margin on the right */
+  width: 97%;
 }
 
 /* Navbar styles */
 .navbar {
-    display: flex;
+  display: flex;
 }
 
 .navbar ol{
-    list-style-type: none;
-    padding:0;
-    margin:0;
+  list-style-type: none;
+  /* padding:50px; */
+  margin:0;
 }
-
 .navbar li{
-    display: inline-block;
-    margin-right:10px;
+  display: inline-block;
+  margin-right:10px;
+
 }
 
 /* Page title */
@@ -43,26 +40,52 @@ h1 {
     text-align: center;
 }
 
+
+/* center this */
 /* Table styles */
 table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
     margin-bottom: 20px;
-}
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #ddd;
 
-table th, table td {
+  }
+  
+  table th, table td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
     text-align: left;
-}
-
-/* Highlight table header */
-table th {
+  }
+  
+  /* Highlight table header */
+  table th {
     background-color: #333;
     color: #fff;
-}
-
-/* Alternate row background color */
-tbody tr:nth-child(even) {
+  }
+  
+  /* Alternate row background color */
+  tbody tr:nth-child(even) {
     background-color: #f9f9f9;
-}
+  }
+
+
+  .checkout-button-container {
+    text-align: center;
+
+  }
+
+  .checkout-button-container button {
+    background-color: #073980;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .checkout-button-container button:hover {
+    background-color: #194595;
+  }

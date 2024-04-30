@@ -1,22 +1,28 @@
+/* Reset default margin and padding */
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Top page container */
 .top-page{
     color:black;
-    background-color: antiquewhite;
     display: flex;
     justify-content: space-between;
     align-items:center;
-
+    margin-left: 1%; /* Add this line to add some margin on the right */
+    width: 97%;
 }
 
+/* Navbar styles */
 .navbar {
     display: flex;
 }
 
 .navbar ol{
     list-style-type: none;
-    padding:0;
+    /* padding:50px; */
     margin:0;
 }
-
 .navbar li{
     display: inline-block;
     margin-right:10px;
@@ -35,7 +41,7 @@
 }
 
 .home-img {
-    background-color: cornflowerblue;
+    background-color: #89CFF0;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -50,7 +56,7 @@
     align-items:center;
     justify-content: space-evenly;
     padding: 40px;
-    background-color: gray;
+    background-color: #ffcd29;
 }
 
 .about-us{

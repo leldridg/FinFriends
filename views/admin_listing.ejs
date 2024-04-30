@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listing Page</title>
-    <link rel="stylesheet" type="text/css" href="../styles/login.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/admin_listing.css" />
 
     <div class="top-page">
         <h1>FinFriends</h1>
@@ -20,7 +20,7 @@
     
 </head>
 <body>
-    <h1>Admin Dashboard</h1>
+    <h2>Fish Inventory</h2>
     <table>
         <thead>
             <tr>
@@ -39,11 +39,13 @@
                     <td><%= fish.price %></td>
                     <td><%= fish.quantity %></td>
                     <td>
+                        <div class="fishes">
                         <form action="/remove-fish" method="post">
                             <input type="hidden" name="fish_name" value="<%= fish.fish_name %>">
                             <input type="hidden" name="admin" value="<%= username %>">
                             <button type="submit" id="removeFishButton"> remove <%= fish.fish_name %></button>
-                        </form>      
+                        </form>     
+                    </div> 
                         
                     </td>
                 </tr>
