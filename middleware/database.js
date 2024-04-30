@@ -33,25 +33,16 @@ function passwordCheck(username, password, callback) {
   });
 }
 
-function isPasswordValid(password,callback){
-  let sql = 'SELECT * FROM users WHERE keypass != ?';
-  connection.query(sql,[password],(err,results) =>{
-    if(err){
-      return callback(err);
-    }
-    callback(null,results.length > 0)
-  });
-}
-
-// function validAddresss(address_1,address_2,callback){
-//   let sql = 'SELECT * FROM users'
-//   connection.query(sql,[address_1,address_2],(err,results) => {
+// function isPasswordValid(password,callback){
+//   let sql = 'SELECT * FROM users WHERE keypass != ?';
+//   connection.query(sql,[password],(err,results) =>{
 //     if(err){
 //       return callback(err);
 //     }
-//     callback(null,results > 0);  
+//     callback(null,results.length > 0)
 //   });
 // }
+
 
 function insertUser(username,password,first_name,last_name,address_1, address_2, city,state,zip, callback){
   let sql = 'INSERT INTO users (username,keypass,first_name,last_name,street,apt_num,city,state,zip,admin_perms) VALUES (?,?,?,?,?,?,?,?,?,FALSE)';
@@ -200,6 +191,6 @@ function addAudit(action,fish_name,admin,callback ){
 //////
 
 module.exports = {
-  userExists,passwordCheck,isPasswordValid,insertUser,isAdmin,addToCart,createOrder,fishExists, insertFish,removeFish,addAudit,
+  userExists,passwordCheck,insertUser,isAdmin,addToCart,createOrder,fishExists, insertFish,removeFish,addAudit,
   databaseConnection: connection
 };
