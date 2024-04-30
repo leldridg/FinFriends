@@ -9,8 +9,8 @@
     display: flex;
     justify-content: space-between;
     align-items:center;
-    margin-left: 10%; /* Add this line to add some margin on the right */
-    width: 80%;
+    margin-left: 1%; /* Add this line to add some margin on the right */
+    width: 97%;
 }
 
 /* Navbar styles */

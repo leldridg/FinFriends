@@ -1,3 +1,9 @@
+
+*{
+    font-family: 'Roboto', sans-serif;
+
+}
+
 .login-container {
     text-align: center; /* Horizontal centering */
     justify-content: center; /* Horizontal centering */
@@ -22,16 +28,15 @@
 
 }
 
-
+/* Top page container */
 .top-page{
     color:black;
-    background-color: antiquewhite;
     display: flex;
     justify-content: space-between;
     align-items:center;
-
+    margin-left: 1%; /* Add this line to add some margin on the right */
+    width: 97%;
 }
-
 .navbar {
     display: flex;
 }
