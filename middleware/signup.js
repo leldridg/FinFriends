@@ -16,31 +16,22 @@ function handleSignup(req,res){
         if(exists) {
             res.status(400).json({ error: 'Username is already taken' }); // Send JSON response indicating that the username is taken
         } else{
-            isPasswordValid(password,(err,isValid) => {
-                if(err){
-                    console.error('error checking password',err)
-                }
-                if(isValid){
-                    if(/^\s|\s$/.test(password)){
-                        res.status(400).json({error:'Password has a space in it'});
-                    }
+            if(password.includes(" ")){
+                res.status(400).json({error:'Password has a space in it'});
+            }
     
+            else{
+                insertUser(username,password,firstname,lastname,addressline, addressline2, city,state,zip, (err,userId) => {
+                    if (err){
+                        console.error('Error inserting: user', err);
+                    }
                     else{
-                        insertUser(username,password,firstname,lastname,addressline, addressline2, city,state,zip, (err,userId) => {
-                            if (err){
-                                console.error('Error inserting: user', err);
-                            }
-                            else{
-                                console.log('User inserted with ID:', userId);
-                                res.render('home',{isLoggedIn:true,username:username, admin:false});
-                            }
-                        });
-    
+                        console.log('User inserted with ID:', userId);
+                        res.render('home',{isLoggedIn:true,username:username, admin:false});
                     }
-                }
-                
-            });
-        
+                });
+    
+            }
         }
     });
 
