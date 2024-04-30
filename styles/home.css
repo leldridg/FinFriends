@@ -1,22 +1,28 @@
+/* Reset default margin and padding */
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Top page container */
 .top-page{
     color:black;
-    background-color: antiquewhite;
     display: flex;
     justify-content: space-between;
     align-items:center;
-
+    margin-left: 10%; /* Add this line to add some margin on the right */
+    width: 80%;
 }
 
+/* Navbar styles */
 .navbar {
     display: flex;
 }
 
 .navbar ol{
     list-style-type: none;
-    padding:0;
+    /* padding:50px; */
     margin:0;
 }
-
 .navbar li{
     display: inline-block;
     margin-right:10px;
