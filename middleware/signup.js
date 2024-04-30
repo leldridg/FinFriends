@@ -1,6 +1,6 @@
 
 const express = require('express');
-const { insertUser,userExists } = require('./database');
+const { insertUser,userExists,invalidPassword } = require('./database');
 
 
 function handleSignup(req,res){
@@ -16,13 +16,31 @@ function handleSignup(req,res){
         if(exists) {
             res.status(400).json({ error: 'Username is already taken' }); // Send JSON response indicating that the username is taken
         } else{
-            insertUser(username,password,firstname,lastname,addressline, addressline2, city,state,zip, (err,userId) => {
-                if (err){
-                    console.error('Error inserting: user', err);
+            invalidPassword(password,(err,isValid) => {
+                if(err){
+                    console.error('error checking password',err)
+                }
+
+                if(!(isValid)){
+                    if(password.includes(" ")){
+                        res.status(400).json({
+                          error: 'Password is invalid because it has a space in it'});
+                    }
+                    else{
+                        res.status(400).json({error: 'Password is invalid' });
+                    }
                 }
                 else{
-                    console.log('User inserted with ID:', userId);
-                    res.render('home',{isLoggedIn:true,username:username, admin:false});
+                    insertUser(username,password,firstname,lastname,addressline, addressline2, city,state,zip, (err,userId) => {
+                        if (err){
+                            console.error('Error inserting: user', err);
+                        }
+                        else{
+                            console.log('User inserted with ID:', userId);
+                            res.render('home',{isLoggedIn:true,username:username, admin:false});
+                        }
+                    });
+
                 }
             });
         
