@@ -1,6 +1,6 @@
 
 const express = require('express');
-const { insertUser,userExists,invalidPassword } = require('./database');
+const { insertUser,userExists,isValidPassword } = require('./database');
 
 
 function handleSignup(req,res){
@@ -16,7 +16,7 @@ function handleSignup(req,res){
         if(exists) {
             res.status(400).json({ error: 'Username is already taken' }); // Send JSON response indicating that the username is taken
         } else{
-            invalidPassword(password,(err,isValid) => {
+            isValidPassword(password,(err,isValid) => {
                 if(err){
                     console.error('error checking password',err)
                 }
