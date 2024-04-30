@@ -98,6 +98,10 @@ table {
     font-size: 16px;
   }
 
+  .fishes button:hover {
+    background-color: #EEEEEE;
+  }
+
   .stock-container label {
     font-weight: bold;
   }
