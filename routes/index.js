@@ -68,15 +68,15 @@ router.post('/confirm-order',(req,res)=>{
     const username = req.body.username.trim();
     const sub = req.body.subtotal;
 
-    createOrder(username,sub,(err,result) =>{
+    createOrder(username,sub,(err,result) => {
         if(err){
             console.error('error creating order', err);
         }
         if(result){
+
             console.log('Order Created');
             res.render('confirmationPage',{username:username,isLoggedIn: true});
             //res.json({ message: 'ORDER IS ON THE WAY!!!', username: username });
-
         }
     });
 

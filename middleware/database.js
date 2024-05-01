@@ -83,8 +83,13 @@ async function createOrder(username, subtotal, callback) {
     // Add items to the order
     await addItemsToOrder(username, orderNum);
     
+    // Reduce available quantity of items
+    await updateAvailableItemQuantities(username);
+
     // Remove items from the user's cart
     await removeFromCartItems(username);
+
+    
 
     console.log('Order created successfully');
     callback(null, orderNum);
@@ -97,6 +102,23 @@ async function createOrder(username, subtotal, callback) {
 async function insertOrder(username, total) {
   const sql = 'INSERT INTO ORDERS (username, total) VALUES (?, ?)';
   return await query(sql, [username, total]);
+}
+
+async function updateAvailableItemQuantities(username) {
+  const sqlSelectCart = 'SELECT prod_name, quantity FROM user_cart WHERE username = ?';
+  const sqlSelectInventory = 'SELECT quantity FROM fish_inventory WHERE fish_name = ?';
+  const sqlUpdate = 'UPDATE fish_inventory SET quantity = ? WHERE fish_name = ?';
+
+  const items = await query(sqlSelectCart, [username]);
+
+  for (const item of items) {
+    const name = item.prod_name;
+    const inventory = await query(sqlSelectInventory, [name]);
+    if(inventory.length > 0) {
+      const newQuantity = inventory[0].quantity - item.quantity;
+      await query(sqlUpdate, [newQuantity, name]);
+    }
+  }
 }
 
 async function addItemsToOrder(username, orderNum) {
