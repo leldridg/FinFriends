@@ -71,7 +71,12 @@
                         <input type="hidden" name="fish_name" value="<%= fish.fish_name %>">
                         <input type="hidden" name="price" value=<%= fish.price %>>
                         <button type="submit" id="addtoCartButton">Add to Cart</button>
-                    </form>      
+                    </form>
+                    <script>
+                        document.getElementById('addtoCartButton').addEventListener('click', function() {
+                            alert('Item added to your cart!');
+                        });
+                    </script>
                 <% } else { %>
                     <p>Please Log in to Add Items to Cart</p>
                 <% } %>
