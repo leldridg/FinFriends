@@ -1,6 +1,6 @@
 var express = require("express");
 var app = express();
-var PORT = 4567 || process.env.PORT; //var PORT = process.env.PORT || 3000
+var PORT = process.env.PORT || 3000
 const indexRouter = require('./routes/index');
 
 ///fixes css file template
