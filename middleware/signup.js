@@ -13,38 +13,34 @@ function handleSignup(req,res){
             console.error('error checking user', err);
         }
        
-        if(exists) {
-            res.status(400).json({ error: 'Username is already taken' }); // Send JSON response indicating that the username is taken
-        } else{
-            //Checks if password is valid (right now without a query)
-            //It is working
-            if(password.includes(" ")){
-                res.status(400).json({error:'Password has a space in it'});
-            }
+        else if(exists) {
+            res.render('signup',{ error: 'Username is already taken' }); // Send JSON response indicating that the username is taken
+        } 
+        //Checks if password is valid 
+        else if(password.includes(" ")){
+            res.render('signup',{error:'Password is invalid because it has a space in it'});
+                
+        }
             
-            //Checking to see if the address are valid(right now without a query)
-            if(!(addressline.includes("street")) && !(addressline.includes("st")) && !(addressline.includes("avenve")) && 
-            !(addressline.includes("ave")) && !(addressline.includes("lane")) && !(addressline.includes("place")) 
-            && !(addressline.includes("blvd")) && !(addressline.includes("boulvard"))){
-                res.status(400).json({error:'Address is not valid because it does not include a street/st, ave/avenve, lane, boulvard/blvd or place'});
-            }
+        //Checking to see if the address are valid
+        else if(!(addressline.includes("street"))  && !(addressline.includes("avenve")) && !(addressline.includes("lane")) && !(addressline.includes("place"))){
+            res.render('signup',{error:'Address 1 is not valid because it does not include a street, avenve, lane, or place'});   
+        }
 
-            if(!(addressline2.includes("null"))){
-                res.status(400).json({error:'Address is not valid because it is not null'});
-            }
+        else if(!(addressline2.includes("null"))){
+            res.render('signup',{error:'Address 2 is not valid because it is not null'});
+        }
 
-            else{
-                insertUser(username,password,firstname,lastname,addressline, addressline2, city,state,zip, (err,userId) => {
-                    if (err){
-                        console.error('Error inserting: user', err);
-                    }
-                    else{
-                        console.log('User inserted with ID:', userId);
-                        res.render('home',{isLoggedIn:true,username:username, admin:false});
-                    }
-                });
-    
-            }
+        else{
+            insertUser(username,password,firstname,lastname,addressline, addressline2, city,state,zip, (err,userId) => {
+                if (err){
+                    console.error('Error inserting: user', err);
+                }
+                else{
+                    console.log('User inserted with ID:', userId);
+                    res.render('home',{isLoggedIn:true,username:username, admin:false});
+                }
+            });
         }
     });
 
